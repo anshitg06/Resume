@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anshit Garg - Interactive CV</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .cv-nav-btn {
+      border-radius: 9999px;
+      padding: 0.5rem 1rem;
+      background: none;
+      transition: color 0.2s, background 0.2s;
+    }
+    .cv-nav-btn.text-blue-600 {
+      background: linear-gradient(to right, #2563eb, #7c3aed);
+      color: #fff !important;
+      border-bottom: none;
+      box-shadow: 0 2px 12px 0 #3b82f667;
+    }
+    .cv-section {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(16px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .cv-section:not(.hidden) {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-tr from-blue-100 via-indigo-100 to-pink-100 min-h-screen relative">
+
+  <!-- Fixed Download PDF button top-right -->
+  <button onclick="window.print()" class="fixed top-6 right-6 px-4 py-1 text-sm rounded-full bg-blue-600 text-white hover:bg-blue-700 transition shadow focus:outline-none focus:ring-2 focus:ring-blue-400 z-50">
+    Download PDF
+  </button>
+
+  <main class="w-full max-w-4xl mx-auto px-4 py-12 min-h-screen flex flex-col">
+    <!-- Profile Header -->
+    <header class="flex flex-col items-center mb-12 relative">
+      <!-- Profile photo removed -->
+      <div class="flex flex-col md:flex-row md:items-center w-full max-w-2xl justify-center">
+        <h1 class="text-3xl font-bold text-gray-900 flex items-center">
+          Anshit Garg
+        </h1>
+      </div>
+      <p class="text-gray-500 mt-2">Aspiring Data Scientist | Data Analyst | Aspiring Software Developer</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="flex justify-center mb-10 space-x-2">
+      <button onclick="showSection('profile')" id="btn-profile" class="cv-nav-btn font-semibold">Profile</button>
+      <button onclick="showSection('experience')" id="btn-experience" class="cv-nav-btn">Experience</button>
+      <button onclick="showSection('skills')" id="btn-skills" class="cv-nav-btn">Skills</button>
+      <button onclick="showSection('projects')" id="btn-projects" class="cv-nav-btn">Projects</button>
+      <button onclick="showSection('achievements')" id="btn-achievements" class="cv-nav-btn">Achievements</button>
+      <button onclick="showSection('contact')" id="btn-contact" class="cv-nav-btn">Contact</button>
+    </nav>
+
+    <!-- Sections -->
+    <section id="profile" class="cv-section bg-white/70 rounded-2xl px-6 py-8 mb-8 shadow-lg">
+      <h2 class="text-xl font-bold mb-2 text-gray-900">About Me</h2>
+      <p class="text-gray-700 max-w-2xl">
+        I am a third-year B.Tech student in Computer Science and Engineering with Cyber Security at Bennett University, passionate about data science, software development, and problem-solving. Skilled in Python, Java, C++, and web development technologies including React.js. I continuously strive to build interactive and efficient applications and enjoy engaging in creative content creation and technology exploration.
+      </p>
+    </section>
+
+    <section id="experience" class="cv-section hidden bg-white/70 rounded-2xl px-6 py-8 mb-8 shadow-lg">
+      <h2 class="text-xl font-bold mb-2 text-gray-900">Experience</h2>
+      <p class="text-gray-700 max-w-2xl">
+        Currently focused on academic projects and self-driven software development, including involvement in cybersecurity tools and network security testing projects like Password Logger and WiFi manipulation systems using ESP32 microcontrollers.
+      </p>
+    </section>
+
+    <section id="skills" class="cv-section hidden bg-white/70 rounded-2xl px-6 py-8 mb-8 shadow-lg">
+      <h2 class="text-xl font-bold mb-2 text-gray-900">Skills</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl">
+        <div>
+          <h3 class="font-semibold mt-4 mb-1 text-gray-800">Programming Languages & Data Structures</h3>
+          <ul class="list-disc list-inside text-gray-700">
+            <li>Python (Proficient)</li>
+            <li>Java (Proficient)</li>
+            <li>C++ & Data Structures and Algorithms (Strong foundation)</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold mt-4 mb-1 text-gray-800">Web Development</h3>
+          <ul class="list-disc list-inside text-gray-700">
+            <li>HTML, CSS, React.js (Understanding to build responsive & interactive apps)</li>
+            <li>SQL fundamentals for data management and querying</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold mt-4 mb-1 text-gray-800">Data Science & Tools</h3>
+          <ul class="list-disc list-inside text-gray-700">
+            <li>Data analysis & problem-solving with Python and R</li>
+            <li>Data Visualization using R</li>
+            <li>Machine Learning basics using TensorFlow</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold mt-4 mb-1 text-gray-800">Other Skills</h3>
+          <ul class="list-disc list-inside text-gray-700">
+            <li>Video Editing using Adobe Premiere Pro and After Effects</li>
+            <li>Network security testing tools (BlueShark)</li>
+            <li>Embedded system programming with ESP32 and ATtiny85</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="cv-section hidden bg-white/70 rounded-2xl px-6 py-8 mb-8 shadow-lg max-w-4xl mx-auto">
+      <h2 class="text-xl font-bold mb-4 text-gray-900">Projects</h2>
+      <ul class="list-disc list-inside space-y-3 text-gray-700">
+        <li><strong>Scientific Calculator (Python with UI):</strong> Developed a functional scientific calculator with a GUI using Python and Tkinter.</li>
+        <li><strong>Hangman Game (Python):</strong> Created a classic text-based Hangman game.</li>
+        <li><strong>AI Digit Recognizer (Python):</strong> Built a handwritten digit recognition machine learning model using TensorFlow.</li>
+        <li><strong>AI CV Checker (R and Python):</strong> Developed an AI-powered resume analyzer providing feedback based on job descriptions.</li>
+        <li><strong>Brick Breaker Game (Java):</strong> Designed a brick-breaker game focusing on user input and collision detection.</li>
+        <li><strong>Museum Chatbot (Frontend):</strong> Contributed to frontend development of an interactive museum chatbot.</li>
+        <li><strong>Network Security Projects:</strong> Password Logger (BlueShark), WiFi Cloner and Blocker (ESP32), Rubber Ducky payload (ATtiny85).</li>
+        <li><strong>Automation Scripts:</strong> Autotyper and Message Spammer developed in Python for automation and testing purposes.</li>
+      </ul>
+    </section>
+
+    <section id="achievements" class="cv-section hidden bg-white/70 rounded-2xl px-6 py-8 mb-8 shadow-lg max-w-4xl mx-auto">
+      <h2 class="text-xl font-bold mb-4 text-gray-900">Achievements</h2>
+      <ul class="list-disc list-inside text-gray-700 max-w-2xl">
+        <li>Secured 201st rank among more than 800 teams in All India Smart India Hackathon (SIH) 2024.</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="cv-section hidden bg-white/70 rounded-2xl px-6 py-8 mb-8 shadow-lg max-w-md mx-auto">
+      <h2 class="text-xl font-bold mb-2 text-gray-900">Contact</h2>
+      <form class="flex flex-col space-y-2">
+        <input class="border p-2 rounded" type="email" placeholder="Your Email" />
+        <textarea class="border p-2 rounded" placeholder="Your Message"></textarea>
+        <button type="submit" class="bg-blue-600 text-white rounded px-4 py-2 hover:bg-blue-700 transition">Send</button>
+      </form>
+      <div class="mt-3 text-gray-700 text-sm">
+        Or email: garganshit2005@gmail.com
+      </div>
+      <div class="mt-1 text-gray-700 text-sm">
+        Phone: +91 8448056806
+      </div>
+      <div class="mt-1 text-gray-700 text-sm">
+        LinkedIn: <a href="https://www.linkedin.com/in/anshit-garg-85ab37278" target="_blank" class="text-blue-600 underline">www.linkedin.com/in/anshit-garg-85ab37278</a>
+      </div>
+      <div class="mt-1 text-gray-700 text-sm">
+        GitHub: <a href="https://github.com/anshitg06" target="_blank" class="text-blue-600 underline">github.com/anshitg06</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const sections = ['profile', 'experience', 'skills', 'projects', 'achievements', 'contact'];
+    function showSection(section) {
+      sections.forEach((sec) => {
+        document.getElementById(sec).classList.toggle('hidden', sec !== section);
+        document.getElementById('btn-'+sec).classList.toggle('text-blue-600', sec === section);
+      });
+    }
+    showSection('profile');
+  </script>
+</body>
+</html>
